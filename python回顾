@@ -1,0 +1,48 @@
+函数
+
+def func_name():
+    code
+
+def func_name(arg1, arg2, arg3='data'):
+    code
+
+函数中默认可以访问全局变量，默认参数不能修改，global声明后可修改，函数中可直接修改全局的列表、字典等复制数据类型
+return 函数的结果
+
+迭代
+    a=iter(list)  迭代生成器
+    a.next()
+    节省内存：只记录迭代的开头和结尾、当前位置，和函数一起使用，可以使得函数中断并保存函数的中断状态，yield，可以减少程序的阻塞。
+
+re正则
+    re.match
+    re.search
+    re.findall
+    re.split
+    re.sub
+    \d+ 一个或多个数字
+    . 任意一个字符
+    a* 任意0个或无限个a
+    ？ 0 or 1
+    \s Space
+    \S not space
+    \w number or char [0-9a-z]
+
+
+序列化 #将内存数据实现持久化
+    Json/Pickle
+    Json 跨语言，支持列表、字典、集合
+    Pickle 只能支持py
+
+内置函数
+    map reduce, filter, zip, sorted
+    zip 合并两个列表
+    map(func,list) 将list中的每一个元素交给func处理，获得一个新的列表
+    reduce(func,list) 用传给reduce中的函数 func()（必须是一个二元操作函数）先对集合中的第1，2个数据进行操作，
+    得到的结果再与第三个数据用func()函数运算，最后得到一个结果
+    filter()
+    sorted() 排序
+
+装饰器
+
+
