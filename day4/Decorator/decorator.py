@@ -11,7 +11,7 @@ def performance(f):
         return f(*args,**kw)
     return print_time
 
-@log
+@log  # ... it means log(factorial)
 def factorial(n):
     return reduce(lambda x,y: x*y, range(1, n+1))
 print factorial(10)
