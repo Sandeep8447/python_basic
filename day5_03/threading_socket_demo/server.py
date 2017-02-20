@@ -4,8 +4,10 @@ __auth__ = 'christian'
 import SocketServer
 
 class MyServer(SocketServer.BaseRequestHandler):  #inheritance
+
     def setup(self):
         pass
+
     def handle(self):
         print self.request
         print self.client_address
@@ -20,6 +22,7 @@ class MyServer(SocketServer.BaseRequestHandler):  #inheritance
                 flag = False
             connection.send('sb')
         connection.close()
+
     def finish(self):
         pass
 
