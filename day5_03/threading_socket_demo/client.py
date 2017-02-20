@@ -3,7 +3,7 @@ __auth__ = 'christian'
 
 import socket
 
-ip_port = ('127.0.0.1', 8080)
+ip_port = ('127.0.0.1', 9999)
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 client.connect(ip_port)
 
