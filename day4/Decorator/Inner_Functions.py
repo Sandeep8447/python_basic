@@ -9,8 +9,6 @@ def outer(num1):
 
 '''
 Encapsulation:
-这样把内层函数从全局作用域隐藏起来，不能直接调用。
-使用这种设计模式的一个主要优势在于：在外部函数中对全部参数执行了检查，你可以在内部函数中跳过全部的检查过程。
 You use inner functions to protect them from anything happening outside of the function,
 meaning that they are hidden from the global scope.
 '''

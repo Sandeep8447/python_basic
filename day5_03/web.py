@@ -6,7 +6,7 @@ import socket  # something wrong.
 # handle the client request
 def handle_request(client):
     buf = client.recv(1024)
-    #client.send("HTTP/1.1 200 OK\r\n\r\n")
+    client.send("HTTP/1.1 200 OK\r\n\r\n")
     client.send("Hello, World")
 
 def main():
