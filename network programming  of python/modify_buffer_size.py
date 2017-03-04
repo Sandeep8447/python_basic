@@ -3,6 +3,8 @@
 # This program is optimized for Python 2.7. It may run on amy
 # other Python version with/without modifications.
 
+# this script should learn more details.
+
 import socket
 
 SEND_BUF_SIZE = 4096
