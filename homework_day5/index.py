@@ -34,8 +34,7 @@ def main():
     server.shutdown()
     client1.shutdown()
     client2.shutdown()
-    #server.socket.close()
-    server.shutdown()
+    server.socket.close()
 
 if __name__ == '__main__':
     main()
