@@ -4,28 +4,39 @@ __auth__ = 'christian'
 import SocketServer
 import os
 
+
 class MyServer(SocketServer.BaseRequestHandler):
     def handle(self):
-        basePath = 'F:/Tmp'
+        base_path = 'G:/temp'
         conn = self.request
-        print "connected..."
+        print 'connected...'
         while True:
             pre_data = conn.recv(1024)
-            cmd, fileName, fileSize = pre_data.split('|')
-            recvSize = 0
-            fileDir = os.path.join(basePath,fileName)
-            f = file(fileDir, 'wb')
+            # 获取请求方法、文件名、文件大小
+            cmd, file_name, file_size = pre_data.split('|')
+            # 已经接收文件的大小
+            recv_size = 0
+            # 上传文件路径拼接
+            file_dir = os.path.join(base_path, file_name)
+            f = file(file_dir, 'wb')
             Flag = True
             while Flag:
-                if int(fileSize) > recvSize:
+                # 未上传完毕，
+                if int(file_size) > recv_size:
+                    # 最多接收1024，可能接收的小于1024
                     data = conn.recv(1024)
-                    recvSize += len(data)
+                    recv_size += len(data)
+                # 上传完毕，则退出循环
                 else:
-                    recvSize = 0
+                    recv_size = 0
                     Flag = False
+                    continue
+
+                # 写入文件
                 f.write(data)
-            print "Update successed..."
+            print 'upload successed.'
             f.close()
+
 
 instance = SocketServer.ThreadingTCPServer(('127.0.0.1', 9999), MyServer)
 instance.serve_forever()

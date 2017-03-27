@@ -1,11 +1,10 @@
 # -*- coding:utf-8 -*-
 __auth__ = 'christian'
 
-import os
-import socket
 import threading
-from utility.server import ThreadedTCPServer, ThreadedTCPRequestHandler
-from utility.client import ForkingClient
+
+from homework_day5.client import ForkingClient
+from homework_day5.server import ThreadedTCPServer, ThreadedTCPRequestHandler
 
 SERVER_HOST = 'localhost'
 SERVER_PORT = 0  # tells the kernel to pickup a port dynamically
