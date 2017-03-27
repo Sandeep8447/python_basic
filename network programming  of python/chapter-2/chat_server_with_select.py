@@ -18,7 +18,7 @@ CHAT_SERVER_NAME = 'server'
 
 # Some utilities
 def send(channel, *args):
-    buffer = cPickle.dump(args)
+    buffer = cPickle.dumps(args)
     value = socket.htonl(len(buffer))
     size = struct.pack("L", value)
     channel.send(size)
@@ -34,7 +34,7 @@ def receive(channel):
     buf = ""
     while len(buf) < size:
         buf += channel.recv(size - len(buf))
-    return cPickle.load(buf)[0]
+    return cPickle.loads(buf)[0]
 
 
 class ChatServer(object):
@@ -91,8 +91,8 @@ class ChatServer(object):
                     self.clientmap[client] = (address, cname)
 
                     # Send joining information to other clients
-                    msg = "\n(Connected: New client (%d) from %s)" % (self.clients, self.get_client_name((client)))
-
+                    msg = "\n(Connected: New client (%d) from %s)" % (self.clients,
+                                                                      self.get_client_name(client))
                     for output in self.outputs:
                         send(output, msg)
                     self.outputs.append(client)
@@ -137,14 +137,14 @@ class ChatServer(object):
 class ChatClient(object):
     """ A command line chat client using select """
 
-    def __ini__(self, port, host=SERVER_HOST):
+    def __init__(self, name, port, host=SERVER_HOST):
         self.name = name
         self.connected = False
         self.host = host
         self.port = port
 
         # Initial prompt
-        self.prompt = '[' + '@'.join((name, socket.gethostbyname().split('.')[0])) + ']> '
+        self.prompt = '[' + '@'.join((name, socket.gethostname().split('.')[0])) + ']> '
 
         # Connect to server at port
         try:
