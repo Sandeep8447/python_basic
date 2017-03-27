@@ -4,7 +4,7 @@ __auth__ = 'christian'
 import MySQLdb
 
 try:
-    conn = MySQLdb.connect(host='localhost', user='root', passwd='', port=3306)
+    conn = MySQLdb.connect(host='localhost', user='root', passwd='123456', port=3306)
     cur = conn.cursor()
     #cur = conn.cursor(cursorclass = MySQLdb.cursors.DictCursor)  # show data like {'info': 'hi rollen', 'id': 1L} as dictionary
     conn.select_db('python')  # chose one database

@@ -9,9 +9,9 @@ class MyServer(SocketServer.BaseRequestHandler):  #inheritance
         pass
 
     def handle(self):
-        print self.request
-        print self.client_address
-        print self.server
+        # print self.request
+        # print self.client_address
+        # print self.server
         connection = self.request
         connection.send('hello.')
         flag = True
@@ -28,7 +28,7 @@ class MyServer(SocketServer.BaseRequestHandler):  #inheritance
 
 
 if __name__ == '__main__':
-    server = SocketServer.ThreadingTCPServer(('127.0.0.1', 9999), MyServer)  # init
+    server = SocketServer.ThreadingTCPServer(('127.0.0.1', 8090), MyServer)  # init
     '''
     class ThreadingTCPServer(ThreadingMixIn, TCPServer): pass
 
