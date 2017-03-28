@@ -18,7 +18,9 @@ while True:
     input = raw_input('path:')
     cmd, path = input.split('|')
     file_name = os.path.basename(path)
+    print file_name
     file_size = os.stat(path).st_size
+    print file_size
     sk.send(cmd + "|" + file_name + '|' + str(file_size))
     send_size = 0
     f = file(path, 'rb')
