@@ -38,5 +38,5 @@ class MyServer(SocketServer.BaseRequestHandler):
             f.close()
 
 
-instance = SocketServer.ThreadingTCPServer(('127.0.0.1', 9998), MyServer)
+instance = SocketServer.ThreadingTCPServer(('127.0.0.1', 9990), MyServer)
 instance.serve_forever()

@@ -1,15 +1,13 @@
 # -*- coding:utf-8 -*-
 __auth__ = 'christian'
 
-# !/usr/bin/env python
-# coding:utf-8
 
 
 import socket
 import sys
 import os
 
-ip_port = ('127.0.0.1', 9998)
+ip_port = ('127.0.0.1', 9990)
 sk = socket.socket()
 sk.connect(ip_port)
 
