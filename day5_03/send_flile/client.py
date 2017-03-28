@@ -9,7 +9,7 @@ import socket
 import sys
 import os
 
-ip_port = ('127.0.0.1', 9999)
+ip_port = ('127.0.0.1', 9998)
 sk = socket.socket()
 sk.connect(ip_port)
 

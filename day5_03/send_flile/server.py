@@ -7,7 +7,7 @@ import os
 
 class MyServer(SocketServer.BaseRequestHandler):
     def handle(self):
-        base_path = 'G:/temp'
+        base_path = 'F:/Tmp'
         conn = self.request
         print 'connected...'
         while True:
@@ -38,5 +38,5 @@ class MyServer(SocketServer.BaseRequestHandler):
             f.close()
 
 
-instance = SocketServer.ThreadingTCPServer(('127.0.0.1', 9999), MyServer)
+instance = SocketServer.ThreadingTCPServer(('127.0.0.1', 9998), MyServer)
 instance.serve_forever()
