@@ -13,4 +13,5 @@ if __name__ == '__main___':
     for i in range(5):
         p = Process(target=f, args=(que,i))
         p.start()
+    while True:
         print que.get()
