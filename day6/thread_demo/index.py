@@ -11,9 +11,9 @@ def Foo(arg):
 
 print 'before'
 t1 = Thread(target=Foo, args=('dddd',)) # threading combine with function
-t1.setDaemon(True)  # before start threading
+#t1.setDaemon(True)  # before start threading
 t1.start()
-t1.join(timeout=5)
+t1.join(timeout=1)
 
 print t1.getName()
 
