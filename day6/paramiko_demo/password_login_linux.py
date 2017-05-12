@@ -12,7 +12,7 @@ ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())  # add fingerprint
 # connect the server
 ssh.connect(hostname='192.168.11.90', port=22, username='root', password='123456')
 
-# excu the unix-like command
+# executing  the unix-like command
 stdin, stdout, stderr = ssh.exec_command('free -h')
 
 res, err = stdout.read(), stderr.read()
