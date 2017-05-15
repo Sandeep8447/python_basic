@@ -5,18 +5,17 @@ __auth__ = 'christian'
 import threading
 import time
 
-
-def sayhi(num):  # 定义每个线程要运行的函数
-    print("running on number:%s" % num)
-    time.sleep(1)
-    print ("task done", num)
+def sayhi(n):  # 定义每个线程要运行的函数
+    global num
+    time.sleep(5)
+    num += 1
 
 if __name__ == '__main__':
-    start_time = time.time()
-    t_obj = [] # 存线程实例
-    for i in range(50):
+
+    num = 0
+    t_obj = []  # 存线程实例
+    for i in range(1000):
         t = threading.Thread(target=sayhi, args=('t-%s' % i, ))
-        # t.setDaemon(True) # 把当前线程设置为守护进程
         t.start()
         t_obj.append(t)  # 为了不阻塞后面的线程启动，不在这里使用join方法，先存放到一个列表里
 
@@ -24,8 +23,13 @@ if __name__ == '__main__':
         t.join()
 
     print ('--------all threads have finished.--------')
-    # print (threading.current_thread(),threading.active_count())
+    print (threading.current_thread(),threading.active_count())
 
-    print ('cost:', time.time() - start_time)
+    time.sleep(2)
+    print ('num:', num)  # num不等于100
+
+# --------all threads have finished.--------
+# (<_MainThread(MainThread, started 139625935087360)>, 1)
+# ('num:', 987)
 
 

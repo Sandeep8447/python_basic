@@ -24,6 +24,6 @@ if __name__ == '__main__':
     t2.start()
 
     t1.join()
-    #t2.join()
+    #t2.join() # 等待thread-2执行完成
 
     print '---main thread---'
