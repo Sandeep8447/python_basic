@@ -9,16 +9,16 @@ import time
 # apply threading lock
 
 def sayhi(n):  # 定义每个线程要运行的函数
-    lock.acquire()
-    global num
+    global num  # 每个线程中都获取这个全局变量
+    lock.acquire()  # 修改数据前加锁
     num += 1
     # time.sleep(1)  # sleep 后直接导致执行方式变成串行， sleep的时间1秒threading lock 没有被释放
-    lock.release()
+    lock.release()  # 修改数据后释放
 
 if __name__ == '__main__':
 
-    lock = threading.Lock()
-    num = 0
+    lock = threading.Lock()  # 生成全局锁
+    num = 0  # 设定一个共享变量
     t_obj = []  # 存线程实例
     for i in range(50):
         t = threading.Thread(target=sayhi, args=('t-%s' % i, ))
@@ -32,10 +32,7 @@ if __name__ == '__main__':
     print (threading.current_thread(),threading.active_count())
 
     time.sleep(2)
-    print ('num:', num)  # num不等于100
+    print ('num:', num)
 
-# --------all threads have finished.--------
-# (<_MainThread(MainThread, started 139625935087360)>, 1)
-# ('num:', 987)
 
 
