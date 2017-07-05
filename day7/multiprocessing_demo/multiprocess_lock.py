@@ -4,7 +4,7 @@ __auth__ = 'christian'
 from multiprocessing import Process, Lock
 import time
 
-# Process lock: share the screen, the lock can keep the data clearly.
+# Process lock: Without using the lock output from the different processes is liable to get all mixed up.
 
 def f(l, i):
     time.sleep(0.5)
