@@ -25,11 +25,11 @@ def info(title):
     print 'process id:', os.getpid()
 
 def f(name):
-    info('function f')
+    info('\033[31;1mfunction f\033[0m')
     print 'Hello', name
 
 if __name__ == '__main__':
-    info('main line')
+    info('\033[32;1mmain process line\033[0m')
     print '--------------'
     p = Process(target=f, args=('chris',))
     p.start()
