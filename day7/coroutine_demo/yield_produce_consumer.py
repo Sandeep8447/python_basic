@@ -34,6 +34,7 @@ def produce(consumer):
 if __name__ == '__main__':
     consumer = consume()
     consumer.send(None)
+    """Resume the generator and "send" a value that becomes the current yield-expression """
     producer = produce(consumer)
 
     for _ in range(10):

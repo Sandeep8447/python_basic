@@ -14,8 +14,10 @@ def consumer(name):
 
 
 def producer():
-    r = con.next()
-    r = con2.next()
+    # r = con.next()
+    r = con.send(None)
+    # r = con2.next()
+    r = con2.send(None)
     n = 0
     while n < 5:
         n += 1
