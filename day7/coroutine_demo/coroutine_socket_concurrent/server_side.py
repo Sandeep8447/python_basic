@@ -13,6 +13,7 @@ monkey.patch_all()
 通过gevent实现单线程下的多socket并发
 '''
 
+
 def server(port):
     s = socket.socket()
     s.bind(('0.0.0.0', port))
@@ -31,11 +32,11 @@ def handle_request(conn):
             if not data:
                 conn.shutdown(socket.SHUT_WR)
 
-    except Exception as  ex:
+    except Exception as ex:
         print(ex)
     finally:
         conn.close()
 
 
 if __name__ == '__main__':
-    server(8001)
+    server(8002)
