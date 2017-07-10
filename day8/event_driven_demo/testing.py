@@ -4,7 +4,7 @@ __auth__ = 'christian'
 import sys
 from datetime import datetime
 from threading import *
-from day8.event_trigger_demo.EventManager import *
+from day8.event_driven_demo.EventManager import *
 
 #事件名称  新文章
 EVENT_ARTICAL = "Event_Artical"
