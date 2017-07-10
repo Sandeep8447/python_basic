@@ -9,7 +9,7 @@ from urllib import urlopen
 import time
 
 '''
-协程， 遇到IO阻塞时会自动切换任务
+协程， 协程gevent并发爬网页 
 '''
 
 
