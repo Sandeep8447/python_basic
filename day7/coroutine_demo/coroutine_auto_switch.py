@@ -20,7 +20,7 @@ def f(url):
     print('%d bytes received from %s.' % (len(data), url))
 
 urls = ['https://www.python.org/',
-        'https://www.yahoo.com/',
+        'https://www.baidu.com/',
         'https://github.com/'
         ]
 
@@ -33,7 +33,7 @@ print ("sync time:", time.time() - time_start)
 async_time_start = time.time()
 gevent.joinall([
     gevent.spawn(f, 'https://www.python.org/'),
-    gevent.spawn(f, 'https://www.yahoo.com/'),
+    gevent.spawn(f, 'https://www.baidu.com/'),
     gevent.spawn(f, 'https://github.com/'),
 ])
 print ("async time:", time.time() - async_time_start)
