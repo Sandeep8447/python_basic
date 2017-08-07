@@ -3,7 +3,8 @@ __auth__ = 'christian'
 
 import select
 import socket
-import queue
+import Queue
+
 
 server = socket.socket()
 server.bind(('localhost', 9000))
@@ -27,7 +28,7 @@ while True:
             print("来了个新连接", addr)
             inputs.append(conn)  # 是因为这个新建立的连接还没发数据过来，现在就接收的话程序就报错了，
             # 所以要想实现这个客户端发数据来时server端能知道，就需要让select再监测这个conn
-            msg_dic[conn] = queue.Queue()  # 初始化一个队列，后面存要返回给这个客户端的数据
+            msg_dic[conn] = Queue.Queue()  # 初始化一个队列，后面存要返回给这个客户端的数据
         else:  # conn2
             data = r.recv(1024)
             print("收到数据", data)
