@@ -29,6 +29,18 @@ print '--->', re.findall(r"a[b-e]+f", str2)  # 给出范围
 print '--->', re.findall(r"a[^bcde]+f", str2)  # [^ ] 取反
 
 
+print '\n-----str3--------'
+
+str4 = '[E1DAD6][FF5757]10.1K[-]/30K[-]'
+str3 = '[E1DAD6][FF5757]10.1K/30K[-]'
+
+match_list = re.findall(r"\](\d+.*?)(\[\-\])?/(\w+.*?)", str3)
+print match_list
+print match_list[0][0]
+print match_list[0][2]
+
+
+print '\n-----m--------'
 m = re.match(r'(\w+) (\w+)(?P<sign>.*)', 'hello world!')
 
 print "m.string:", m.string
@@ -53,7 +65,6 @@ reg = re.compile('^(?P<remote_ip>[^\s]*) (?P<date>[^ ]*) "(?P<request>[^"]*)" (?
 regMatch = reg.match(line)
 line_bits = regMatch.groupdict()
 print line_bits
-for k, v in line_bits.items() :
+
+for k, v in line_bits.items():
   print k+": "+v
-
-
