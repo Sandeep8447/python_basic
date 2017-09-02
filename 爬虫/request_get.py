@@ -7,6 +7,7 @@ def getHtmlContent(url):
     try:
         r = requests.get(url,  timeout=30)
         r.raise_for_status()
+        print r.raise_for_status()
         r.encoding = r.apparent_encoding
         return r.text
     except:
@@ -14,6 +15,6 @@ def getHtmlContent(url):
 
 
 if __name__ == '__main__':
-    url = 'https://httpbin.org'
+    url = 'https://www.duanlian.tech'
     result = getHtmlContent(url)
     print result
