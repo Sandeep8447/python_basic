@@ -4,6 +4,9 @@ __auth__ = 'christian'
 
 import requests
 
+"""
+IP地址归属地查询
+"""
 url = 'http://ip.cn/index.php?ip='
 try:
     kv = {'user-agent': 'mozilla/5.0'}

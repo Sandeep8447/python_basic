@@ -4,6 +4,9 @@ __auth__ = 'christian'
 import requests
 import os
 
+"""
+获取网络图片
+"""
 root = '/Users/hrgame/Pictures'
 url = 'http://image.nationalgeographic.com.cn/2017/0823/20170823045853897.jpg'
 path = root + url.split('/')[-1]
