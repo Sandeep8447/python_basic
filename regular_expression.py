@@ -53,3 +53,5 @@ print "m.start(2):", m.start(2)
 print "m.end(2):", m.end(2)
 print "m.span(2):", m.span(2)
 print r"m.expand(r'\2 \1\3'):", m.expand(r'\2 \1\3')
+
+str = u'将于[ff0000]2016年12月16日23：59[-]结束本次精英测试。'

@@ -42,3 +42,8 @@ def md5sum(fname):
     else:
         return ""
     return m.hexdigest()
+
+
+a = md5hex("redeemcodelist_1507709446.csvhrg!Q@W#E$R%T")
+
+print a
